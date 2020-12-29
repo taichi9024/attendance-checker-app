@@ -1,0 +1,12 @@
+<h1>Admin::Controll#index</h1>
+<p>Find me in app/views/admin/controll/index.html.erb</p>
+
+
+<% @dakokus.each do |dakoku|%>
+    <%= dakoku.id %><br>
+    <%= "出社" if dakoku.hairu == true %>
+    <%= "退勤" if dakoku.deru == true %>
+    <br><%= dakoku.created_at%><br>
+    <% staff = StaffMember.find_by(id: dakoku.staff_member_id) %>
+    <%= link_to staff.name, admin_controll_path(staff.id) %><br>
+<% end %>

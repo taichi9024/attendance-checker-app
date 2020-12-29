@@ -10,5 +10,6 @@ class Staff::DakokuController < Staff::Base
   end
 
   def index
+    @dakokus = current_staff.dakokus.all
   end
 end

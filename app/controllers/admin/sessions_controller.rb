@@ -14,7 +14,7 @@ class Admin::SessionsController < Admin::Base
       logger.debug "#{@admin.id}"
       session[:admin_id] = @admin.id
       logger.debug "#{session[:admin_id]}"
-      redirect_to admin_root_url
+      redirect_to admin_controll_path
     else
       render :new
     end

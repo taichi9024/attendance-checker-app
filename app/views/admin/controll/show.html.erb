@@ -1,0 +1,6 @@
+<% @dakoku.each do |d|%>
+    <%= d.id %><br>
+    <%= "出社" if d.hairu == true %>
+    <%= "退勤" if d.deru == true%>
+    <br><%= d.created_at%><br>
+<% end %>

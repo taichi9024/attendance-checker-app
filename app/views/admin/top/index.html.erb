@@ -1,7 +1,7 @@
 <h1 class="text-center">アドミン</h1>
 <p>ログインページ</p>
-<% if current_admin %>
-<%= link_to "ログアウト", :admin_login, class:"btn btn-primary"%>
+<% if session[:admin_user] %>
+<%= link_to "ログアウト", :admin_logout ,method: :delete, class:"btn btn-primary"%>
 <% else %>
 <%= link_to "ログイン", :admin_login %>
 <% end %>
