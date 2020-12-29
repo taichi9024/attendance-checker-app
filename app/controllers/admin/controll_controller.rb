@@ -1,4 +1,4 @@
-class Admin::ControllController < ApplicationController
+class Admin::ControllController < Admin::Base
   def index
     @dakokus = Dakoku.all
   end

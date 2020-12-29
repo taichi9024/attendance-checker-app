@@ -10,6 +10,11 @@
   </head>
 
   <body>
+<% if current_staff %>
+<%= link_to "ログアウト", :staff_logout ,method: :delete, class:"btn btn-primary"%>
+<% else %>
+<%= link_to "ログイン", :staff_login %>
+<% end %>
     <%= yield %>
     <%= debug(params)%>
   </body>

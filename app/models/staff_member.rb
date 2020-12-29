@@ -1,3 +1,23 @@
 class StaffMember < ApplicationRecord
+    before_validation do
+        self.name = notnull_name(name)
+    end
+
     has_many :dakokus
+    validates :name, presence: true
+    validates :pass, presence: true
+
+    def passwd=(raw_pass)
+        if raw_pass.kind_of?(String)
+            self.pass = BCrypt::Password.create(raw_pass)
+        else
+            self.pass = nil
+        end
+    end
+
+    def notnull_name(name)
+        if name != true
+            name = "hogehoge"
+        end
+    end
 end
