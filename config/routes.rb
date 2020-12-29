@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  namespace :staff do
+    get 'changes/edit'
+  end
   namespace :customer do
     root 'top#index'
   end
@@ -20,6 +24,8 @@ Rails.application.routes.draw do
     get "all_dakoku", to:"dakoku#index"
     post "push", to:"dakoku#create", as: :push
     delete "pull", to:"dakoku#destroy", as: :pull
+
+    resource :changes ,only:[:edit, :update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
