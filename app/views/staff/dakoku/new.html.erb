@@ -1,0 +1,14 @@
+<h1>打刻ページ</h1>
+
+<% if session[:staff_id] %>
+<%= link_to "ログアウト", :staff_login, class:"btn btn-primary"%>
+<% else %>
+<%= link_to "ログイン", :staff_login %>
+<% end %>
+
+<%= link_to "出社", staff_push_path, method: :post%>
+
+<%= link_to "退社", staff_pull_path, method: :delete%>
+
+
+<%= link_to "勤怠履歴", staff_all_dakoku_path %>

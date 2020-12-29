@@ -7,7 +7,8 @@ class Staff::SessionsController < Staff::Base
     @form = Staff::LoginForm.new(staff_params)
     if @staff = StaffMember.find_by(pass: @form.pass)
       session[:staff_id] = @staff.id
-      redirect_to :staff_root
+      logger.debug "#{session[:staff_id]}"
+      redirect_to :staff_dakoku
     else
       render :new
     end

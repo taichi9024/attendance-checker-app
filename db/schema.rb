@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_084314) do
+ActiveRecord::Schema.define(version: 2020_12_29_101955) do
 
   create_table "admin_members", force: :cascade do |t|
     t.string "name", null: false
     t.string "pass", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "dakokus", force: :cascade do |t|
+    t.boolean "hairu"
+    t.boolean "deru"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "staff_member_id"
+    t.index ["staff_member_id"], name: "index_dakokus_on_staff_member_id"
   end
 
   create_table "staff_members", force: :cascade do |t|
