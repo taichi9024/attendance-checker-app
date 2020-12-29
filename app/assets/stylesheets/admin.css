@@ -12,5 +12,6 @@
  *
  *= require_tree ./admin
  *= require_self
+ *= bootstrap
  */
-
+@import "bootstrap";
