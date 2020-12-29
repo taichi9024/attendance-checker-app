@@ -10,12 +10,19 @@ class Admin::SessionsController < Admin::Base
 
   def create
     @form = Admin::LoginForm.new(admin_params)
-    logger.debug "#{@form.pass}"
-    if AdminMember.find_by(pass: @form.pass)
+    if @admin = AdminMember.find_by(pass: @form.pass)
+      logger.debug "#{@admin.id}"
+      session[:admin_id] = @admin.id
+      logger.debug "#{session[:admin_id]}"
       redirect_to admin_root_url
     else
       render :new
     end
+  end
+
+  def destroy
+    reset.session
+    redirect_to :admin_root
   end
 
   private
