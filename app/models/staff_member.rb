@@ -1,6 +1,6 @@
 class StaffMember < ApplicationRecord
     before_validation do
-        notnull_name(name)
+        notnull_name(name) if self.name == nil
     end
 
     has_many :dakokus
@@ -16,8 +16,6 @@ class StaffMember < ApplicationRecord
     end
 
     def notnull_name(name)
-        if self.name == nil || "" || false
-            self.name = "hogehoge"
-        end
+        self.name = "hogehoge"
     end
 end

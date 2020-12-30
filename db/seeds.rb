@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "loading ...."
-StaffMember.create!(
-    name: "hoge" ,
-    passwd: "hoge" 
-)
+10.times do |i|
+    StaffMember.create!(
+        name: "hoge"+"#{i}" ,
+        passwd: "hoge"+"#{i}"
+        )
+end        
 puts "it worked"

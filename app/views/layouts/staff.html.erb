@@ -10,6 +10,7 @@
   </head>
 
   <body>
+  <%= content_tag(:span, flash.notice, class:"alert alert-notice") %>
 <% if current_staff %>
 <%= link_to "ログアウト", :staff_logout ,method: :delete, class:"btn btn-primary"%>
 <% else %>

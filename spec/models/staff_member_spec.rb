@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "#passwd=", type: :model do
+    # before do
+    #     @staff = create(:staffmember)
+    # end
     it "正しいpass" do
         m = StaffMember.new
         m.passwd= "hogehoge"

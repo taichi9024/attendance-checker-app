@@ -10,6 +10,7 @@ class Staff::DakokuController < Staff::Base
   end
 
   def index
+    raise ActiveRecord::RecordNotFound
     @dakokus = current_staff.dakokus.all
   end
 end
